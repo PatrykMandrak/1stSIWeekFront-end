@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milkopis page</title>
+</head>
+<body>
+    <div class="content">
+    <header><b>Edgar Lee Masters - Poet</b></header>
+    <nav>
+        <p>Navigation menu</p>
+	<ul>
+            <li><a href="index.html">Main page</a></li>
+            <li><a href="contact.html">Contact page</a></li>
+	</ul>
+    </nav>
+    <article>
+        <form onsubmit="return validate();">
+            Enter Your name:<br>
+            <input type="text" id="name" name="firstname"><br>
+            Give Your email:<br>
+            <input type="text" id="email" name="email"><br>
+	    Write Your message:<br>
+            <textarea rows="4" cols="50"></textarea><br>
+	    <button type="button" onclick="validate()">Send</button><br>
+            <p id="demo"></p>
+        </form>
+    </article>    
+    </div>
+
+    <br>
+
+    <aside>
+    </aside>
+    <br>
+    <footer>
+        All photos with no copyright from <em><a href="https://pixabay.com/" style="color:red">www.pixabay.com</a></em>
+    </footer>
+
+    <script>
+    function validate() {
+        var name = document.getElementById('name').value;
+        var email = document.getElementById('email').value;
+        var nameRGEX = /^[a-z][a-z\s]*$/;
+        var emailRGEX = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
+        var nameResult = nameRGEX.test(name);
+        var emailResult = emailRGEX.test(email);
+        
+        if (nameResult == false) {
+            document.getElementById("demo").innerHTML = 'Name is invalid';
+            return false;
+        } else if (emailResult == false){
+            document.getElementById("demo").innerHTML = 'Email adress is invalid';
+            return false;
+        } else {
+            document.getElementById("demo").innerHTML = 'Your message was sent successfully!';
+        }
+    }
+    </script>
+
+</body>
+</html>
